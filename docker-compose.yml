@@ -123,6 +123,11 @@ services:
     environment:
       MINIO_ROOT_USER: minioadmin
       MINIO_ROOT_PASSWORD: minioadmin
+
+      MINIO_NOTIFY_KAFKA_ENABLE_TAXI_TRIP_SINK: "on"
+      MINIO_NOTIFY_KAFKA_BROKERS_TAXI_TRIP_SINK: "broker1:29092,broker2:29092"
+      MINIO_NOTIFY_KAFKA_TOPIC_TAXI_TRIP_SINK: "nyc_trip_records"
+
     command: server /data --console-address ":9001"
     volumes:
       - minio_data:/data
